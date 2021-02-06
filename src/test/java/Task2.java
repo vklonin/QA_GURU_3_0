@@ -14,7 +14,7 @@ public class Task2 {
         open("https://github.com/selenide/selenide");
 
         // check if it is what we expected
-        $("h1",0).shouldHave(text("selenide / selenide"));
+        $("h1").shouldHave(text("selenide / selenide"));
 
         //find wiki link and follow
         $(byText("Wiki")).click();
@@ -30,16 +30,7 @@ public class Task2 {
 
         // check for JUnit code sample
 
-        SelenideElement using_jUnit5 = $(withText("Using JUnit5"));
-        SelenideElement parent = using_jUnit5.parent();
-        SelenideElement sibling = parent.sibling(0);
-
-        sibling.shouldHave(cssClass("highlight-source-java"));
-
-        //String ownText = sibling.getAttribute("class");
-
-       // using_jUnit5.shouldHave(text("Using JUnit5"));
-
+        $(withText("Using JUnit5")).parent().sibling(0).shouldHave(cssClass("highlight-source-java"));
 
     }
 
