@@ -10,8 +10,10 @@ public class Task2 {
     @Test
 
     void checkSoftAssertion(){
-        // open Selenide link in git
-        open("https://github.com/selenide/selenide");
+        // open Selenide link in git with elements
+        open("https://github.com");
+        $(byName("q")).val("selenide").pressEnter();
+        $("em").shouldHave(text("selenide")).click();
 
         // check if it is what we expected
         $("h1").shouldHave(text("selenide / selenide"));
